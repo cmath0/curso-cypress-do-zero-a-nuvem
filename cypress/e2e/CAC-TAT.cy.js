@@ -47,7 +47,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('textarea[id="open-text-area"]').type('Teste de texto de feedback.', {delay: 0})
     
     // Habilitando checkbox telefone, logo o campo de telefone deve se tornar obrigatório
-    cy.get('input[id="phone-checkbox"]').click()
+    cy.get('input[id="phone-checkbox"]').check()
 
     // Submeter formulário sem preencher telefone
     cy.contains('button', 'Enviar').click()
@@ -133,5 +133,24 @@ describe('Central de Atendimento ao Cliente TAT', () => {
           .check()
           .should('be.checked')
       })
+  })
+
+  it('marca ambos checkboxes, depois desmarca o último', () => {
+    // marca todos os checkboxes
+    cy.get('#check input[type="checkbox"')
+      .as('checkboxes')
+      .check()
+    
+    // valida que todos os checkboxes estão marcados e desmarca último checkbox
+    cy.get('@checkboxes')
+      .should('be.checked')
+      .last()
+      .uncheck()
+    
+    // valida que último checkbox foi desmarcado
+    cy.get('@checkboxes')
+      .last()
+      .should('not.be.checked')
+
   })
 })
