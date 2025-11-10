@@ -1,28 +1,37 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+# Curso "Cypress - do zero à Nuvem"
 
-👋 Seja bem-vindo(a)!
+Este projeto de automação com Cypress foi desenvolvido durante o curso "Cypress - do zero à Nuvem", da escola Talking About Testing, ministrado pelo professor [Walmyr](https://github.com/wlsf82).
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+### Breve resumo do que aprendi nesse curso:
+- Acessar páginas locais e remotas com `cy.visit()`
+- Utilizar `beforeEach()` para comandos a serem executados antes de todos os testes
+- **Localizar**, **digitar** e **clicar** em elementos
+- Trabalhar com diferentes tipos de campo, como **selects**, **checkboxes** e **radio buttons**
+- Realizar diferentes verificações de resultados esperados utilizando `.should()` e/ou `expect()`
+- Criar **comandos customizados** no arquivo `commands.js`
+- Fazer **upload de arquivos** e simular *drag-and-drop*
+- Lidar com **links** que abrem em outra aba do navegador
+- Diferentes formas de configurar **variáveis de ambiente**
+- Simular diferentes dimensões para validar o uso por **dispositivos móveis**
+- Acoplar a suite de testes em um pipeline de integração contínua com **Github Actions**, fazendo os testes serem executados sempre que houver mudança no código da aplicação ou dos testes.
 
-## O que você vai aprender?
+## Pré-requisitos
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
+Necessário ter instalado:
 
-## Vamos começar?
+- Node.js (no projeto, foi utilizada a versão `v20.13.1`)
+- npm (no projeto, foi utilizada a versão `v10.8.1`)
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+## Instalação de dependências
 
-___
+- No terminal, executar `npm install` ou `npm i` para instalar as dependências.
 
-Este é um curso da **Escola Talking About Testing**.
+## Execução dos testes
+
+### Versão interativa:
+- `npm run cyopen`: Abre a Cypress App, permitindo a execução dos testes via interface gráfica com o **viewport padrão desktop (1280x880)**.
+- `npm run cyopen vp=mobile`: Abre a Cypress App, permitindo a execução dos testes via interface gráfica simulando o **viewport de um dispositivo móvel** (410x860).
+
+### Versão headless (recomendada para pipelines CI/CD):
+- `npm run cytest`: Executa todas as `specs` do projeto em modo headless com o **viewport padrão desktop (1280x880)**.
+- `npm run cytest vp=mobile`: Executa todas as `specs` do projeto em modo headless simulando o **viewport de um dispositivo móvel** (410x860).
