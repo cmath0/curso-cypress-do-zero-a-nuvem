@@ -4,8 +4,10 @@
   "description": "Curso 'Cypress, do Zero à Nuvem' da Escola Talking About Testing.",
   "main": "src/index.html",
   "scripts": {
-    "cy:open": "cypress open",
-    "test": "cypress run"
+    "cyopen": "cypress open",
+    "cyopen vp=mobile": "cypress open --config viewportWidth=410 viewportHeight=860",
+    "cytest": "cypress run",
+    "cytest vp=mobile": "cypress run --config viewportWidth=410 viewportHeight=860"
   },
   "repository": {
     "type": "git",
