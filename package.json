@@ -7,7 +7,8 @@
     "cyopen": "cypress open",
     "cyopen vp=mobile": "cypress open --config viewportWidth=410 viewportHeight=860",
     "cytest": "cypress run",
-    "cytest vp=mobile": "cypress run --config viewportWidth=410 viewportHeight=860"
+    "cytest vp=mobile": "cypress run --config viewportWidth=410 viewportHeight=860",
+    "cytest:cloud": "cypress run --record"
   },
   "repository": {
     "type": "git",
