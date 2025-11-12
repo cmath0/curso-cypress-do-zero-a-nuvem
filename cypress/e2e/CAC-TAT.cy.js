@@ -14,9 +14,15 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('input[id="lastName"]').type('Cardoso', {delay: 0})
     cy.get('input[id="email"]').type('emaildomatheus@teste.com', {delay: 0})
     cy.get('textarea[id="open-text-area"]').type(longText, {delay: 0})
+
+    cy.clock()
     cy.contains('button', 'Enviar').click()
 
     cy.get('span[class="success"').should('be.visible')
+
+    cy.tick(3000)
+
+    cy.get('span[class="success"').should('not.be.visible')
   })
 
   it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida', () => {
@@ -24,9 +30,14 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('input[id="lastName"]').type('Cardoso', {delay: 0})
     cy.get('input[id="email"]').type('emaildomatheusteste', {delay: 0})
     cy.get('textarea[id="open-text-area"]').type('Teste de texto de feedback.', {delay: 0})
+
+    cy.clock()
     cy.contains('button', 'Enviar').click()
 
     cy.get('span[class="error"').should('be.visible')
+
+    cy.tick(3000)
+    cy.get('span[class="error"').should('not.be.visible')
   })
 
   it('não permite digitar valores não numéricos no campo de telefone', () => {
@@ -50,9 +61,14 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('input[id="phone-checkbox"]').check()
 
     // Submeter formulário sem preencher telefone
+    cy.clock()
     cy.contains('button', 'Enviar').click()
 
     cy.get('span[class="error"').should('be.visible')
+
+    // Avançar 3 segundos e validar que a mensagem desapareceu
+    cy.tick(3000)
+    cy.get('span[class="error"').should('not.be.visible')
   })
 
   it('preenche e limpa os campos nome, sobrenome, email e telefone', () => {
@@ -82,9 +98,13 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   })
 
   it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', () => {
+    cy.clock()
     cy.contains('button', 'Enviar').click()
 
     cy.get('span[class="error"').should('be.visible')
+
+    cy.tick(3000)
+    cy.get('span[class="error"').should('not.be.visible')
   })
 
   it('envia o formulário com sucesso usando um comando customizado', () => {
@@ -95,9 +115,13 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       feedback: 'Feedback da Lucia.'
     }
 
+    cy.clock()
     cy.fillMandatoryFieldsAndSubmitWithDefaultObject(data)
     
     cy.get('span[class="success"').should('be.visible')
+
+    cy.tick(3000)
+    cy.get('span[class="success"').should('not.be.visible')
   })
 
   it('seleciona um produto (YouTube) por seu texto', () => {
