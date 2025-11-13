@@ -13,7 +13,10 @@ Este projeto de automação com Cypress foi desenvolvido durante o curso "Cypres
 - Lidar com **links** que abrem em outra aba do navegador
 - Diferentes formas de configurar **variáveis de ambiente**
 - Simular diferentes dimensões para validar o uso por **dispositivos móveis**
-- Acoplar a suite de testes em um pipeline de integração contínua com **Github Actions**, fazendo os testes serem executados sempre que houver mudança no código da aplicação ou dos testes.
+- Controlar o relógio do navegador com `cy.clock()` e `cy.tick()`
+- Fazer **requisições HTTP** com `cy.request()` e interceptar requisições com `cy.intercept()` para *spy/stub*
+- Acoplar a suite de testes em um pipeline de integração contínua com **Github Actions**, fazendo os testes serem executados sempre que houver mudança no código da aplicação ou dos testes
+- Integrar os testes com a **Cypress Cloud** para gestão de testes na nuvem
 
 ## Pré-requisitos
 
